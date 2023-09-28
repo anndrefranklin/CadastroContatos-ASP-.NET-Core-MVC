@@ -1,0 +1,64 @@
+﻿@model List<ContatoModel>
+@{
+    ViewData["Title"] = "Listagem de contatos";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a role="button" class="btn btn-success" asp-controller="Contato" asp-action="Criar"><i class="fa fa-plus-circle"></i> Novo Contato</a>
+    </div>
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+     @if(TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+    
+    <br />
+    
+    <h1 class="display-6">Listagem de Contatos</h1>
+    <br />
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Celular</th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>  
+            @if(Model != null && Model.Any())
+            {
+                foreach(ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a role="button" class="btn btn-warning" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar"><i class="fa fa-pencil-square-o"></i></a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao"><i class="fa fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+                        
+        </tbody>
+    </table>
+</div>
