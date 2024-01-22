@@ -26,7 +26,7 @@ namespace CadastroContatos.Controllers
             return View();
         }
 
-        //Editando contato -----------------------------------------------------
+        //Editando contato -------------------------------------------------------------------
         public IActionResult Editar(int id) 
         {
             ContatoModel contato = _contatoRepositorio.ListarPorId(id);
@@ -40,7 +40,7 @@ namespace CadastroContatos.Controllers
             return View(contato);
         }
 
-        //Apagando Contato -----------------------------------------------------
+        //Apagando Contato -------------------------------------------------------------------
         public IActionResult Apagar(int id)
         {
             try

@@ -90,4 +90,9 @@ body {
     height: 31px;
 }
 
+/*Logotipo*/
 
+.logo_inicial {
+    width: 25%;
+    height: 20%;
+}

@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar Contato</h1>    
+    <h1 class="display-6">Cadastrar Contato</h1>    
 </div>
 
 <form asp-controller="Contato" asp-action="Criar" method="post">
@@ -26,6 +26,6 @@
         @Html.ValidationMessageFor(x => x.Celular)
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-plus-circle"></i> Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button"><i class="fa fa-reply"></i> Voltar</a>
 </form>
